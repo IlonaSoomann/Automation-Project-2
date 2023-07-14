@@ -7,7 +7,7 @@ describe('Issue create', () => {
   beforeEach(() => {
     cy.visit('/');
     cy.url().should('eq', 'https://jira.ivorreic.com/project').then((url) => {
-    //open isse creation modal  
+    //open issue creation modal  
     cy.visit(url + '/board?modal-issue-create=true');
     });
   });

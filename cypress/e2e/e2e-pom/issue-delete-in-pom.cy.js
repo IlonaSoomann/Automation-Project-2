@@ -7,8 +7,8 @@ describe('Issue delete', () => {
   beforeEach(() => {
     cy.visit('/');
     cy.url().should('eq', 'https://jira.ivorreic.com/project').then((url) => {
-    //open issue detail modal with title from line 16  
-    cy.contains(issueTitle).click();
+      //open issue detail modal with title from line 16  
+      cy.contains(issueTitle).click();
     });
   });
 
@@ -17,9 +17,14 @@ describe('Issue delete', () => {
 
   it('Should delete issue successfully', () => {
     //add steps to delete issue
+    IssueModal.clickDeleteButton(issueTitle);
+    IssueModal.confirmDeletion(issueTitle);
   });
 
-  it('Should cancel deletion process successfully', () => {
-    //add steps to start deletion proces but cancel it
-  });
+it('Should cancel deletion process successfully', () => {
+  //add steps to start deletion proces but cancel it
+    IssueModal.clickDeleteButton(issueTitle);
+    IssueModal.cancelDeletion(issueTitle);
+    IssueModal.closeDetailModal(issueTitle);
+});
 });
